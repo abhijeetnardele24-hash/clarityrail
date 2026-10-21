@@ -39,7 +39,7 @@ jobs:
       - name: ESLint Code Quality
         run: npm run lint
 
-      - name: Vitest Unit & Coverage Suite (Thresholds: Stmts>=85%, Branches>=80%)
+      - name: "Vitest Unit and Coverage Suite (Thresholds: Stmts >= 85%, Branches >= 80%)"
         run: npm test
 
       - name: Deterministic Compiler Benchmark (40 briefs)
