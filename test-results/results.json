@@ -1,0 +1,1354 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\playwright.config.ts",
+    "rootDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Small (320px)",
+        "name": "Mobile Small (320px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Standard (360px)",
+        "name": "Mobile Standard (360px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Modern (390px)",
+        "name": "Mobile Modern (390px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Tablet Portrait (768px)",
+        "name": "Tablet Portrait (768px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Laptop (1024px)",
+        "name": "Laptop (1024px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Desktop HD (1440px)",
+        "name": "Desktop HD (1440px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Desktop Large (1920px)",
+        "name": "Desktop Large (1920px)",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Mobile Small (320px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "isMobile": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Mobile Small (320px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Mobile Standard (360px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 360,
+            "height": 800
+          },
+          "isMobile": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Mobile Standard (360px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Mobile Modern (390px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Mobile Modern (390px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Tablet Portrait (768px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Tablet Portrait (768px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Laptop (1024px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Laptop (1024px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Desktop HD (1440px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Desktop HD (1440px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Desktop Large (1920px)",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Desktop Large (1920px)"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run build && npm run preview -- --port 4173 --strictPort",
+      "port": 4173,
+      "reuseExistingServer": true,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "clarityrail.spec.ts",
+      "file": "clarityrail.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "ClarityRail E2E & Accessibility Suite",
+          "file": "clarityrail.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Small (320px)",
+                  "projectName": "Mobile Small (320px)",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2136,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:37.800Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-4c8ad492c5701d2cb091",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Small (320px)",
+                  "projectName": "Mobile Small (320px)",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:40.018Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-cbe020b720017c1b1090",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Small (320px)",
+                  "projectName": "Mobile Small (320px)",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 535,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:41.243Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-e3631cfa65eeba1ef128",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Small (320px)",
+                  "projectName": "Mobile Small (320px)",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:41.786Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-e00882a925a3be2d03b7",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Standard (360px)",
+                  "projectName": "Mobile Standard (360px)",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1069,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:43.236Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-6047509e38ed81fead91",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Standard (360px)",
+                  "projectName": "Mobile Standard (360px)",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1260,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:44.397Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-2334a3dbce4d48e1f68a",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Standard (360px)",
+                  "projectName": "Mobile Standard (360px)",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 529,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:45.665Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-6272356475511b769e6f",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Standard (360px)",
+                  "projectName": "Mobile Standard (360px)",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 473,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:46.201Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-61480b39b4d9241da43c",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Modern (390px)",
+                  "projectName": "Mobile Modern (390px)",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1109,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:47.599Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-e948ef68a15c29e59770",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Modern (390px)",
+                  "projectName": "Mobile Modern (390px)",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1348,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:48.795Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-4305cf2ce08f37cc6529",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Modern (390px)",
+                  "projectName": "Mobile Modern (390px)",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 541,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:50.152Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-64c7b01901a66ea27a3b",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Modern (390px)",
+                  "projectName": "Mobile Modern (390px)",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 487,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:50.701Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-0b9efc3592939e3b1918",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Tablet Portrait (768px)",
+                  "projectName": "Tablet Portrait (768px)",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1075,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:52.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-6659715ef5fa26721564",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Tablet Portrait (768px)",
+                  "projectName": "Tablet Portrait (768px)",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1270,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:53.254Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-dcec2ccdeb897f714e20",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Tablet Portrait (768px)",
+                  "projectName": "Tablet Portrait (768px)",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 524,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:54.536Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-11e59a21a3a184a55478",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Tablet Portrait (768px)",
+                  "projectName": "Tablet Portrait (768px)",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 488,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:55.068Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-4d6480efdd858a826407",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Laptop (1024px)",
+                  "projectName": "Laptop (1024px)",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1030,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:56.465Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-0820aee515a8481c7edc",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Laptop (1024px)",
+                  "projectName": "Laptop (1024px)",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:57.584Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-5c6b6728ecd9ede0ea7d",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Laptop (1024px)",
+                  "projectName": "Laptop (1024px)",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 529,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:59.064Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-f288734c27aac391a324",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Laptop (1024px)",
+                  "projectName": "Laptop (1024px)",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:53:59.601Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-db999b82b86c8ddd104d",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop HD (1440px)",
+                  "projectName": "Desktop HD (1440px)",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1119,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:01.003Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-8fc59c240ed51d8f43b5",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop HD (1440px)",
+                  "projectName": "Desktop HD (1440px)",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1259,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:02.209Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-734120b441130607ca3c",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop HD (1440px)",
+                  "projectName": "Desktop HD (1440px)",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 532,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:03.478Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-141c6e8a3bc3df7e0017",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop HD (1440px)",
+                  "projectName": "Desktop HD (1440px)",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:04.017Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-f52885f7524083e9a6a2",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Landing Page: Loads, compiles academic brief, and verifies Axe accessibility",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Large (1920px)",
+                  "projectName": "Desktop Large (1920px)",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1089,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:05.415Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-4aeb001c8a1b790b5dfd",
+              "file": "clarityrail.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Large (1920px)",
+                  "projectName": "Desktop Large (1920px)",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1315,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:06.592Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-f80d5c96f11119d8d0b9",
+              "file": "clarityrail.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Review Route & Export Capsule Modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Large (1920px)",
+                  "projectName": "Desktop Large (1920px)",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:07.918Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-04a24b0fab2f23ed49ba",
+              "file": "clarityrail.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "Display Settings: Theme toggle, text scale, and reset data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Large (1920px)",
+                  "projectName": "Desktop Large (1920px)",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 475,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T17:54:08.564Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28a18f11c64ab21cec50-3eaad801a5d915a081da",
+              "file": "clarityrail.spec.ts",
+              "line": 124,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T17:53:29.313Z",
+    "duration": 40406.523,
+    "expected": 28,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

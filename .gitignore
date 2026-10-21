@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build artifacts
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Test output
+playwright-report/
+coverage/*
+test-results/.last-run.json
+test-results/clarityrail-*/
+test-results/**/*.png
+test-results/**/*.webm
+test-results/**/*.zip
+
+# Keep machine-readable evidence files
+!test-results/results.json
+!test-results/vitest-results.json
+!coverage/coverage-summary.json
+
+# Environment & Local Cache
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+*.log

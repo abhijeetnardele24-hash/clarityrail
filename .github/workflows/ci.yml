@@ -1,0 +1,81 @@
+name: ClarityRail CI & Verification Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: TypeScript Typecheck
+        run: npm run typecheck
+
+      - name: ESLint Code Quality
+        run: npm run lint
+
+      - name: Vitest Unit & Coverage Suite (Thresholds: Stmts>=85%, Branches>=80%)
+        run: npm test
+
+      - name: Deterministic Compiler Benchmark (40 briefs)
+        run: npm run benchmark:rules
+
+      - name: Verify Machine-Readable Evidence
+        run: npm run evidence:check
+
+      - name: Security & Claims Integrity Scan
+        run: npm run security-scan
+
+      - name: High-Severity Dependency Audit
+        run: npm run audit
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Playwright Cross-Device & Accessibility E2E
+        run: npm run test:e2e
+
+      - name: Production Bundle Build
+        run: npm run build
+
+      - name: Upload GitHub Pages Artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "dist"
+
+  deploy:
+    needs: verify
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

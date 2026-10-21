@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-10-21T17:55:50.063Z",
+  "status": "VERIFIED",
+  "unitTesting": {
+    "totalTests": 60,
+    "passed": 60,
+    "coverage": {
+      "statements": 92.01,
+      "lines": 92.01,
+      "functions": 87.17,
+      "branches": 81.57
+    }
+  },
+  "e2eTesting": {
+    "totalTests": 28,
+    "passed": 28,
+    "viewportsTested": [
+      "320x568",
+      "360x800",
+      "390x844",
+      "768x1024",
+      "1024x768",
+      "1440x900",
+      "1920x1080"
+    ],
+    "axeZeroViolations": true
+  },
+  "benchmark": {
+    "benchmarkDate": "2026-10-21T17:44:51.655Z",
+    "corpusSize": 40,
+    "metrics": {
+      "actionPrecision": 1,
+      "actionRecall": 0.939,
+      "actionF1": 0.969,
+      "ambiguityRecall": 0.914,
+      "totalDetectedAmbiguities": 40,
+      "unsupportedStepsCount": 0,
+      "repeatabilityPercent": 100,
+      "stalePropagationAccuracyPercent": 100,
+      "detourAccuracyPercent": 100
+    },
+    "thresholdsMet": {
+      "actionRecallGe90": true,
+      "actionPrecisionGe90": true,
+      "ambiguityRecallGe90": true,
+      "unsupportedStepsZero": true,
+      "repeatability100": true,
+      "stalePropagation100": true
+    }
+  }
+}

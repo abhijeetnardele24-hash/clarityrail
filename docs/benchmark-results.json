@@ -1,0 +1,23 @@
+{
+  "benchmarkDate": "2026-10-21T17:56:14.301Z",
+  "corpusSize": 40,
+  "metrics": {
+    "actionPrecision": 1,
+    "actionRecall": 0.939,
+    "actionF1": 0.969,
+    "ambiguityRecall": 0.914,
+    "totalDetectedAmbiguities": 40,
+    "unsupportedStepsCount": 0,
+    "repeatabilityPercent": 100,
+    "stalePropagationAccuracyPercent": 100,
+    "detourAccuracyPercent": 100
+  },
+  "thresholdsMet": {
+    "actionRecallGe90": true,
+    "actionPrecisionGe90": true,
+    "ambiguityRecallGe90": true,
+    "unsupportedStepsZero": true,
+    "repeatability100": true,
+    "stalePropagation100": true
+  }
+}
