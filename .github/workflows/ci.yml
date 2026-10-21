@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -53,14 +54,14 @@ jobs:
       - name: High-Severity Dependency Audit
         run: npm run audit
 
+      - name: Production Bundle Build
+        run: npm run build
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
       - name: Playwright Cross-Device & Accessibility E2E
         run: npm run test:e2e
-
-      - name: Production Bundle Build
-        run: npm run build
 
       - name: Upload GitHub Pages Artifact
         if: github.ref == 'refs/heads/main'
