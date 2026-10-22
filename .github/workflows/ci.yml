@@ -32,6 +32,9 @@ jobs:
           node-version: 20
           cache: "npm"
 
+      - name: Use Current npm Audit Client
+        run: npm install --global npm@11.6.2
+
       - name: Install Dependencies
         run: npm ci
 
