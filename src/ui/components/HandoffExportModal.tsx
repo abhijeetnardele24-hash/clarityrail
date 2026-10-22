@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RailSession } from "../../domain/types";
 import {
   generateMarkdownHandoff,
@@ -20,6 +20,36 @@ export const HandoffExportModal: React.FC<HandoffExportModalProps> = ({
 }) => {
   const [tab, setTab] = useState<"markdown" | "text" | "json">("markdown");
   const [copied, setCopied] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key !== "Tab" || !dialogRef.current) return;
+      const focusable = Array.from(dialogRef.current.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      ));
+      if (focusable.length === 0) return;
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -67,6 +97,7 @@ export const HandoffExportModal: React.FC<HandoffExportModalProps> = ({
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="export-modal-title"
@@ -113,6 +144,7 @@ export const HandoffExportModal: React.FC<HandoffExportModalProps> = ({
             Export Progress &amp; Handoff Capsule
           </h2>
           <button
+            ref={closeButtonRef}
             type="button"
             className="button button-ghost"
             onClick={onClose}
@@ -161,6 +193,8 @@ export const HandoffExportModal: React.FC<HandoffExportModalProps> = ({
         {/* Content Box */}
         <div style={{ flex: 1, overflowY: "auto", marginBottom: "var(--space-4)" }}>
           <pre
+            tabIndex={0}
+            aria-label="Handoff export preview"
             style={{
               padding: "var(--space-4)",
               backgroundColor: "var(--color-surface-elevated)",
@@ -200,7 +234,6 @@ export const HandoffExportModal: React.FC<HandoffExportModalProps> = ({
               type="button"
               className="button button-secondary"
               onClick={handleCopy}
-              aria-label="Copy handoff content to clipboard"
             >
               {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
               {copied ? "Copied!" : "Copy to Clipboard"}

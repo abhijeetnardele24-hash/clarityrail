@@ -36,7 +36,7 @@
   <!-- Sandbox Boundary Box -->
   <rect x="60" y="130" width="1480" height="710" class="boundary" />
   <rect x="90" y="118" width="360" height="26" class="badge-tag" />
-  <text x="100" y="136" class="text-mono">CLIENT BROWSER SANDBOX (100% OFFLINE &amp; LOCAL)</text>
+  <text x="100" y="136" class="text-mono">CLIENT-SIDE APPLICATION BOUNDARY</text>
 
   <!-- 1. Input Source Layer -->
   <g transform="translate(100, 180)">
@@ -52,12 +52,12 @@
 
     <rect x="20" y="205" width="240" height="90" rx="8" fill="#F5F2EA" stroke="#D8D4CA" stroke-width="1.5" />
     <text x="32" y="233" class="text-bold">Versioned Source Storage</text>
-    <text x="32" y="257" class="text-body">&bull; Revision ID (SHA-digest)</text>
-    <text x="32" y="277" class="text-body">&bull; Immutable parent linkage</text>
+    <text x="32" y="257" class="text-body">&bull; Canonical SHA-256 digest</text>
+    <text x="32" y="277" class="text-body">&bull; Parent revision linkage</text>
 
     <rect x="20" y="315" width="240" height="80" rx="8" fill="#EDF7F1" stroke="#176B45" stroke-width="1.5" />
-    <text x="32" y="343" class="text-bold" fill="#176B45">Zero Cloud Network</text>
-    <text x="32" y="367" class="text-body">Data never leaves device</text>
+    <text x="32" y="343" class="text-bold" fill="#176B45">No Application Backend</text>
+    <text x="32" y="367" class="text-body">Brief stays in browser storage</text>
   </g>
 
   <!-- Arrow 1 -> 2 -->
@@ -110,9 +110,9 @@
     <!-- Contract 1 -->
     <rect x="20" y="100" width="280" height="100" rx="8" fill="#EBF3FC" stroke="#075CCB" stroke-width="1.5" />
     <text x="32" y="128" class="text-bold" fill="#075CCB">1. Evidence Thread</text>
-    <text x="32" y="150" class="text-body">&bull; Immutable clause ID pointers</text>
+    <text x="32" y="150" class="text-body">&bull; Clause ID and source offsets</text>
     <text x="32" y="170" class="text-body">&bull; Direct / Derived / Confirmed</text>
-    <text x="32" y="190" class="text-mono">0 Unsupported Steps Guarantee</text>
+    <text x="32" y="190" class="text-mono">Unsupported actions are discarded</text>
 
     <!-- Contract 2 -->
     <rect x="20" y="220" width="280" height="100" rx="8" fill="#FEF7ED" stroke="#F59E0B" stroke-width="1.5" />
@@ -143,7 +143,7 @@
   <g transform="translate(1260, 180)">
     <rect width="250" height="610" class="surface" />
     <text x="20" y="44" class="text-header">4. UI &amp; Storage</text>
-    <text x="20" y="74" class="text-body">WCAG 2.2 AA Presentation</text>
+    <text x="20" y="74" class="text-body">Accessible interaction layer</text>
 
     <!-- Hero Focus Rail -->
     <rect x="15" y="100" width="220" height="110" rx="8" fill="#FCFAF6" stroke="#075CCB" stroke-width="2" />

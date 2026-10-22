@@ -83,7 +83,6 @@ export const SafeDetourBanner: React.FC<SafeDetourBannerProps> = ({ detour, onAc
                 type="button"
                 className="button button-primary"
                 onClick={() => onActivate(detour.candidateStep!.id)}
-                aria-label={`Switch focus to safe alternative: ${detour.candidateStep.title}`}
               >
                 Switch to this step
                 <ArrowRight size={16} aria-hidden="true" />

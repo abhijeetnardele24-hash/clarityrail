@@ -1,9 +1,12 @@
 import { create } from "zustand";
-import { PlanStep, RailSession, SafeDetourResult } from "../domain/types";
+import { PlanStep, RailSession, SafeDetourResult, SourceRevision } from "../domain/types";
 import { compileBrief } from "../domain/compiler/compiler";
 import { segmentSourceText } from "../domain/compiler/segmenter";
+import { computeNormalizedSourceDigest } from "../domain/compiler/digest";
+import { evaluateStepState } from "../domain/compiler/readiness";
 import { calculateRevisionImpact, applyRevisionStaleness, confirmStaleStepReview } from "../domain/revision/impact";
 import { findDependencySafeDetour } from "../domain/detour/selector";
+
 import {
   saveSession,
   getSession,
@@ -129,23 +132,18 @@ export const useAppStore = create<AppState>((set, get) => ({
       return s;
     });
 
-    // Determine next step: first READY step or unblock a PROPOSED step whose deps are now DONE
-    const nextEligible = updatedSteps.find((s) => {
-      if (s.state === "DONE" || s.state === "SKIPPED" || s.state === "BLOCKED" || s.state === "STALE") {
-        return false;
+    // Re-evaluate steps that might have been unblocked by this step finishing
+    for (const s of updatedSteps) {
+      if (s.state === "BLOCKED" || s.state === "PROPOSED") {
+        const nextState = evaluateStepState(s, updatedSteps, session.ambiguities);
+        if (nextState === "READY") {
+          s.state = "READY";
+        }
       }
-      // Check if all prerequisites are DONE
-      const allDepsDone = s.dependsOn.every((depId) => {
-        const dep = updatedSteps.find((st) => st.id === depId);
-        return dep?.state === "DONE";
-      });
-      return allDepsDone;
-    });
-
-    if (nextEligible && nextEligible.state === "PROPOSED") {
-      nextEligible.state = "READY";
     }
 
+    // Determine next step: first READY step
+    const nextEligible = updatedSteps.find((s) => s.state === "READY");
     const nextActiveId = nextEligible?.id ?? session.activeStepId;
 
     const updatedSession: RailSession = {
@@ -206,19 +204,14 @@ export const useAppStore = create<AppState>((set, get) => ({
       return a;
     });
 
-    // Check if any blocked steps are now freed
+    // Centralized readiness evaluation for each step
     const updatedSteps = session.steps.map((step) => {
-      const remainingBlockers = updatedAmbiguities.filter(
-        (a) =>
-          step.sourceClauseIds.some((cid) => a.sourceClauseIds.includes(cid)) &&
-          (a.status === "OPEN" || a.status === "BLOCKER")
-      );
-
-      if (remainingBlockers.length === 0 && step.state === "BLOCKED") {
+      const nextState = evaluateStepState(step, session.steps, updatedAmbiguities);
+      if (nextState !== step.state) {
         return {
           ...step,
-          state: "READY" as const,
-          evidenceClass: "USER_CONFIRMED" as const,
+          state: nextState,
+          evidenceClass: nextState === "READY" ? ("USER_CONFIRMED" as const) : step.evidenceClass,
         };
       }
       return step;
@@ -245,13 +238,13 @@ export const useAppStore = create<AppState>((set, get) => ({
     const newRevId = `rev_${session.sourceRevisions.length + 1}_${Date.now()}`;
     const newClauses = segmentSourceText(newText, newRevId);
 
-    const newRevision = {
+    const tempRevision: SourceRevision = {
       id: newRevId,
       parentRevisionId: session.activeRevisionId,
       sourceText: newText,
-      normalizedDigest: `digest_${Date.now()}`,
+      normalizedDigest: computeNormalizedSourceDigest(newText),
       createdAt: new Date().toISOString(),
-      changedClauseIds: newClauses.map((c) => c.id),
+      changedClauseIds: [],
       changeSummary: "Revised brief edited by user",
     };
 
@@ -260,8 +253,18 @@ export const useAppStore = create<AppState>((set, get) => ({
       session.sourceClauses,
       newClauses,
       session.steps,
-      newRevision
+      tempRevision
     );
+
+    // Genuinely changed or added clause IDs in the new revision
+    const changedClauseIds = impact.clauseDiffs
+      .filter((d) => d.type === "ADDED" || d.type === "MODIFIED")
+      .map((d) => d.clauseId);
+
+    const newRevision: SourceRevision = {
+      ...tempRevision,
+      changedClauseIds,
+    };
 
     const staleSteps = applyRevisionStaleness(session.steps, impact, newRevId);
 
@@ -288,7 +291,7 @@ export const useAppStore = create<AppState>((set, get) => ({
 
     const updatedSteps = session.steps.map((s) => {
       if (s.id === stepId) {
-        return confirmStaleStepReview(s);
+        return confirmStaleStepReview(s, session.activeRevisionId, session.steps, session.ambiguities);
       }
       return s;
     });
@@ -302,9 +305,10 @@ export const useAppStore = create<AppState>((set, get) => ({
     await saveSession(updatedSession);
     set({
       currentSession: updatedSession,
-      announcement: `Step reviewed and confirmed. Restored to READY.`,
+      announcement: `Step reviewed and confirmed against revision ${session.activeRevisionId}.`,
     });
   },
+
 
   activateDetourStep: async (detourStepId: string) => {
     const session = get().currentSession;

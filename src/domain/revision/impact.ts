@@ -1,5 +1,6 @@
-import { PlanStep, RevisionImpact, SourceClause, SourceRevision } from "../types";
+import { AmbiguityFlag, PlanStep, RevisionImpact, SourceClause, SourceRevision, StepState } from "../types";
 import { computeClauseDiff } from "./diff";
+import { areDependenciesSatisfied, hasBlockingAmbiguity } from "../compiler/readiness";
 
 /**
  * Propagates source clause changes through the PlanStep dependency graph.
@@ -7,7 +8,8 @@ import { computeClauseDiff } from "./diff";
  * Invariants:
  * 1. Directly affected steps whose supporting clauses were modified/removed become STALE.
  * 2. Downstream dependent steps become STALE transitively.
- * 3. Stale steps cannot return to READY/ACTIVE without explicit user review.
+ * 3. Stale steps retain their old validation revision ID until explicit user confirmation.
+ * 4. Stale steps cannot return to READY/ACTIVE without explicit user review.
  */
 export function calculateRevisionImpact(
   previousClauses: SourceClause[],
@@ -78,14 +80,17 @@ export function calculateRevisionImpact(
     allStaleStepIds: Array.from(allStaleSet),
   };
 }
-
 /**
  * Applies revision impact to the steps, marking affected items as STALE.
+ *
+ * CRITICAL INVARIANT:
+ * Does NOT set validatedAgainstRevisionId to the new revision while marking a step STALE.
+ * The field continues identifying the last revision the step was genuinely validated against.
  */
 export function applyRevisionStaleness(
   steps: PlanStep[],
   impact: RevisionImpact,
-  revisionId: string
+  _newRevisionId?: string
 ): PlanStep[] {
   const directSet = new Set(impact.directlyAffectedStepIds);
   const transitiveSet = new Set(impact.transitivelyAffectedStepIds);
@@ -96,7 +101,6 @@ export function applyRevisionStaleness(
         ...step,
         state: "STALE",
         staleReason: "Direct source clause revised. Requires review against updated brief.",
-        validatedAgainstRevisionId: revisionId,
       };
     }
 
@@ -105,7 +109,6 @@ export function applyRevisionStaleness(
         ...step,
         state: "STALE",
         staleReason: "Prerequisite action was invalidated by source revision. Requires review.",
-        validatedAgainstRevisionId: revisionId,
       };
     }
 
@@ -115,16 +118,31 @@ export function applyRevisionStaleness(
 
 /**
  * Explicit review: allows the user to re-confirm a stale step after reviewing changes.
+ * Updates validatedAgainstRevisionId to the active revision ID upon confirmation.
+ * Evaluates readiness: transitions to READY if dependencies and ambiguities are resolved; BLOCKED otherwise.
  */
-export function confirmStaleStepReview(step: PlanStep): PlanStep {
+export function confirmStaleStepReview(
+  step: PlanStep,
+  activeRevisionId: string,
+  allSteps?: PlanStep[],
+  ambiguities?: AmbiguityFlag[]
+): PlanStep {
   if (step.state !== "STALE") {
     return step;
   }
 
+  let nextState: StepState = "READY";
+  if (allSteps && ambiguities) {
+    const isAmbiguityBlocked = hasBlockingAmbiguity(step, ambiguities);
+    const isDepBlocked = !areDependenciesSatisfied(step, allSteps);
+    nextState = isAmbiguityBlocked || isDepBlocked ? "BLOCKED" : "READY";
+  }
+
   return {
     ...step,
-    state: "READY",
+    state: nextState,
     staleReason: undefined,
     evidenceClass: "USER_CONFIRMED",
+    validatedAgainstRevisionId: activeRevisionId,
   };
 }

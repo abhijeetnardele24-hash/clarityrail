@@ -76,6 +76,8 @@ export interface Ambiguity {
   answer?: string;
 }
 
+export type AmbiguityFlag = Ambiguity;
+
 export interface ResumeCapsuleData {
   sessionId: string;
   lastCompletedStepTitle?: string;

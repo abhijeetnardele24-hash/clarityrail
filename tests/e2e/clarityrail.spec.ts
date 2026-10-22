@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
+import { assertAndRecordAxe } from "./axe-evidence";
 
 test.describe("ClarityRail E2E & Accessibility Suite", () => {
-  test("Landing Page: Loads, compiles academic brief, and verifies Axe accessibility", async ({ page }) => {
+  test("Landing Page: Loads, compiles academic brief, and verifies Axe accessibility", async ({ page }, testInfo) => {
     await page.goto("./");
 
     // Check title and hero
@@ -10,14 +10,7 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("From messy instructions");
 
     // Run Axe automated accessibility audit on landing page
-    const axeResults = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-      .analyze();
-
-    const criticalOrSerious = axeResults.violations.filter(
-      (v) => v.impact === "critical" || v.impact === "serious"
-    );
-    expect(criticalOrSerious.length).toBe(0);
+    await assertAndRecordAxe(page, testInfo, "landing");
 
     // Click 1-click synthetic fixture for CS 401
     const fixtureBtn = page.getByTestId("load-fixture-fixture_academic_cs401");
@@ -28,7 +21,7 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     await expect(page.getByTestId("focus-step-title")).toBeVisible();
   });
 
-  test("Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour", async ({ page }) => {
+  test("Four-Part Clarity Contract: Focus Rail, Evidence Thread, Ambiguity, Guard & Detour", async ({ page }, testInfo) => {
     await page.goto("./");
 
     // Load fixture
@@ -49,7 +42,12 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
       await expect(page.getByText(/Resolved:/i).first()).toBeVisible();
     }
 
-    // 3. Mark Step Blocked -> Triggers Dependency-Safe Detour Banner
+    // 3. Complete step 1
+    const markDoneBtn = page.getByTestId("mark-done-button");
+    await expect(markDoneBtn).toBeVisible();
+    await markDoneBtn.click();
+
+    // 4. Hit a blocked step and select a detour
     const blockedBtn = page.getByTestId("mark-blocked-button");
     await blockedBtn.click();
 
@@ -57,7 +55,12 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     await expect(detourBanner).toBeVisible();
     await expect(page.getByText(/Dependency-Safe Detour Available|Detour Blocked/i)).toBeVisible();
 
-    // 4. Change Impact Guard: Revise source brief and verify STALE state propagation
+    const switchDetourBtn = page.getByRole("button", { name: /Switch to this step/i });
+    if (await switchDetourBtn.isVisible()) {
+      await switchDetourBtn.click();
+    }
+
+    // 5. Change Impact Guard: Revise source brief and verify STALE state propagation
     const editBriefBtn = page.getByTestId("edit-brief-button");
     await editBriefBtn.click();
 
@@ -67,8 +70,8 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     // Modify active step's source clause to trigger STALE state on active step
     const currentVal = await textarea.inputValue();
     const revisedVal = currentVal.replace(
-      "Please download the lab starter repository from GitHub.",
-      "Please download the updated v2 lab starter repository with Paxos dependencies."
+      "Draft a 4-page experimental evaluation report analyzing failover latency.",
+      "Draft a 6-page experimental evaluation report including Paxos comparison."
     );
     await textarea.fill(revisedVal);
 
@@ -80,28 +83,21 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     await expect(staleAlert).toBeVisible();
     await expect(page.getByText(/Require Review Due to Source Revision/i)).toBeVisible();
 
-    // Confirm stale step review
+    // 6. Confirm stale step review
     const confirmStaleBtn = page.getByRole("button", { name: /Review & Mark Ready/i }).first();
     if (await confirmStaleBtn.isVisible()) {
       await confirmStaleBtn.click();
     }
 
-    // 5. Interruption Recovery Capsule
+    // 7. Interruption Recovery Capsule
     await expect(page.getByRole("region", { name: /Resume Capsule/i })).toBeVisible();
     await expect(page.getByText(/Local Device Only/i)).toBeVisible();
 
     // Run Axe audit on the complete active rail screen
-    const railAxe = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa"])
-      .analyze();
-
-    const railViolations = railAxe.violations.filter(
-      (v) => v.impact === "critical" || v.impact === "serious"
-    );
-    expect(railViolations.length).toBe(0);
+    await assertAndRecordAxe(page, testInfo, "active-rail-after-revision");
   });
 
-  test("Review Route & Export Capsule Modal", async ({ page }) => {
+  test("Review Route & Export Capsule Modal", async ({ page }, testInfo) => {
     await page.goto("./");
     await page.getByTestId("load-fixture-fixture_academic_cs401").click();
 
@@ -115,13 +111,14 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     const modal = page.getByRole("dialog", { name: /Export Progress & Handoff Capsule/i });
     await expect(modal).toBeVisible();
     await expect(page.getByText(/# ClarityRail Progress & Handoff Capsule/i)).toBeVisible();
+    await assertAndRecordAxe(page, testInfo, "review-export-dialog");
 
     // Close modal
     await page.getByRole("button", { name: /Close export dialog/i }).click();
     await expect(modal).not.toBeVisible();
   });
 
-  test("Display Settings: Theme toggle, text scale, and reset data", async ({ page }) => {
+  test("Display Settings: Theme toggle, text scale, and reset data", async ({ page }, testInfo) => {
     await page.goto("./#/settings");
 
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Display & Accessibility Preferences");
@@ -139,5 +136,6 @@ test.describe("ClarityRail E2E & Accessibility Suite", () => {
     // Restore to Warm Paper
     await page.locator("main").getByRole("button", { name: /Warm Paper/i }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "warm-paper");
+    await assertAndRecordAxe(page, testInfo, "settings-warm-paper");
   });
 });

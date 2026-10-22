@@ -46,7 +46,7 @@ describe("UI Components Suite", () => {
     expect(screen.getByText(/Dependency-Safe Detour Available/i)).toBeInTheDocument();
     expect(screen.getByText("Independent Research")).toBeInTheDocument();
 
-    const switchBtn = screen.getByRole("button", { name: /Switch focus to safe alternative/i });
+    const switchBtn = screen.getByRole("button", { name: /Switch to this step/i });
     fireEvent.click(switchBtn);
 
     expect(onActivate).toHaveBeenCalledWith("cand_1");
@@ -90,7 +90,7 @@ describe("UI Components Suite", () => {
     fireEvent.click(downloadBtn);
 
     // Click copy button
-    const copyBtn = screen.getByRole("button", { name: /Copy handoff content to clipboard/i });
+    const copyBtn = screen.getByRole("button", { name: /Copy to Clipboard/i });
     fireEvent.click(copyBtn);
 
     // Close button
@@ -107,7 +107,7 @@ describe("UI Components Suite", () => {
     );
 
     expect(screen.getByLabelText(/ClarityRail Home/i)).toBeInTheDocument();
-    expect(screen.getByText(/Local & Offline/i)).toBeInTheDocument();
+    expect(screen.getByText(/Local mode/i)).toBeInTheDocument();
 
     const themeBtn = screen.getByRole("button", { name: /High Contrast|Warm Paper/i });
     fireEvent.click(themeBtn);

@@ -157,11 +157,13 @@ describe("Route Views Integration Suite", () => {
     expect(screen.getByText(/Skip to main content/i)).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1 })).toHaveTextContent(/From messy instructions/i);
   });
 
-  it("renders top-level App component with HashRouter", () => {
+  it("renders top-level App component with HashRouter", async () => {
     render(<App />);
     expect(screen.getByText(/Skip to main content/i)).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1 })).toHaveTextContent(/From messy instructions/i);
   });
 
   it("loads a synthetic fixture directly in CaptureRoute", async () => {
@@ -196,5 +198,72 @@ describe("Route Views Integration Suite", () => {
     // Click navigate to full plan review
     const reviewBtn = screen.getByRole("button", { name: /View Full Plan & Export Handoff/i });
     fireEvent.click(reviewBtn);
+  });
+
+  it("walks through the entire 8-step human workflow end-to-end", async () => {
+    // 1. Load a brief
+    const fixture = SYNTHETIC_FIXTURES[0]!;
+    await useAppStore.getState().loadFixture(fixture.id);
+    let session = useAppStore.getState().currentSession!;
+    expect(session).toBeDefined();
+    expect(session.steps.length).toBeGreaterThanOrEqual(4);
+    const initialRevId = session.activeRevisionId;
+
+    // 2. Inspect ambiguity
+    const openAmbiguity = session.ambiguities.find((a) => a.status === "OPEN" || a.status === "BLOCKER");
+    expect(openAmbiguity).toBeDefined();
+
+    // 3. Resolve ambiguity
+    await useAppStore.getState().resolveAmbiguity(openAmbiguity!.id, "ANSWERED", "Confirmed submission at 11:59 PM");
+    session = useAppStore.getState().currentSession!;
+    const resolved = session.ambiguities.find((a) => a.id === openAmbiguity!.id);
+    expect(resolved?.status).toBe("ANSWERED");
+    expect(resolved?.answer).toBe("Confirmed submission at 11:59 PM");
+
+    // 4. Complete step 1
+    const firstStep = session.steps[0]!;
+    await useAppStore.getState().markStepDone(firstStep.id);
+    session = useAppStore.getState().currentSession!;
+    expect(session.steps.find((s) => s.id === firstStep.id)?.state).toBe("DONE");
+
+    // 5. Hit a blocked step and select a detour
+    const activeStepId = session.activeStepId!;
+    await useAppStore.getState().markStepBlocked(activeStepId);
+    const detourResult = useAppStore.getState().safeDetour;
+    expect(detourResult).toBeDefined();
+    if (detourResult?.isEligible && detourResult.candidateStep) {
+      await useAppStore.getState().activateDetourStep(detourResult.candidateStep.id);
+      expect(useAppStore.getState().currentSession?.activeStepId).toBe(detourResult.candidateStep.id);
+    }
+
+    // 6. Revise brief
+    await useAppStore.getState().reviseSourceText(fixture.revisedBriefText!);
+    session = useAppStore.getState().currentSession!;
+    expect(session.sourceRevisions.length).toBe(2);
+    const newRevId = session.activeRevisionId;
+    expect(newRevId).not.toBe(initialRevId);
+
+    const staleSteps = session.steps.filter((s) => s.state === "STALE");
+    expect(staleSteps.length).toBeGreaterThan(0);
+    // Direct and transitive stale steps must retain initialRevId until confirmation
+    expect(staleSteps[0]!.validatedAgainstRevisionId).toBe(initialRevId);
+
+    // 7. Confirm stale review
+    const targetStaleId = staleSteps[0]!.id;
+    await useAppStore.getState().reviewAndConfirmStaleStep(targetStaleId);
+    session = useAppStore.getState().currentSession!;
+    const confirmedStep = session.steps.find((s) => s.id === targetStaleId)!;
+    expect(confirmedStep.state).toBe("READY");
+    expect(confirmedStep.validatedAgainstRevisionId).toBe(newRevId);
+
+    // 8. Export handoff
+    const { generateMarkdownHandoff, serializeSessionToJson } = await import("../../src/adapters/export");
+    const markdown = generateMarkdownHandoff(session);
+    expect(markdown).toContain("# ClarityRail Progress & Handoff Capsule");
+    expect(markdown).toContain("## 7. Revision Provenance & Source Digests");
+    expect(markdown).toContain(session.sourceRevisions[1]!.normalizedDigest);
+
+    const jsonExport = serializeSessionToJson(session);
+    expect(jsonExport).toContain(newRevId);
   });
 });

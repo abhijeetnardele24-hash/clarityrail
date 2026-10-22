@@ -19,6 +19,7 @@ export const Header: React.FC = () => {
   return (
     <header
       role="banner"
+      className="app-header"
       style={{
         backgroundColor: "var(--color-surface)",
         borderBottom: "1px solid var(--color-border)",
@@ -27,6 +28,7 @@ export const Header: React.FC = () => {
     >
       <div
         className="container"
+        data-testid="header-layout"
         style={{
           display: "flex",
           alignItems: "center",
@@ -37,7 +39,7 @@ export const Header: React.FC = () => {
         }}
       >
         {/* Brand / Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+        <div className="brand-lockup">
           <Link
             to="/"
             style={{
@@ -96,16 +98,17 @@ export const Header: React.FC = () => {
               borderRadius: "var(--radius-sm)",
               border: "1px solid var(--color-success)",
             }}
-            title="Local browser storage verified. Zero external telemetry or third-party trackers."
+            className="local-mode-badge"
+            title="Sessions are stored in this browser. The application contains no analytics or telemetry integration."
           >
             <ShieldCheck size={14} aria-hidden="true" />
-            Local &amp; Offline
+            Local mode
           </span>
         </div>
 
         {/* Primary Navigation */}
-        <nav role="navigation" aria-label="Main Navigation">
-          <ul
+        <nav className="primary-navigation" role="navigation" aria-label="Main Navigation">
+          <ul className="nav-list"
             style={{
               display: "flex",
               alignItems: "center",
@@ -129,21 +132,23 @@ export const Header: React.FC = () => {
                 <li>
                   <Link
                     to={`/rail/${sessionId}`}
+                    aria-label="Focus Rail"
                     className={`button ${location.pathname.startsWith("/rail") ? "button-primary" : "button-ghost"}`}
                     style={{ minHeight: 38, padding: "var(--space-1) var(--space-3)" }}
                   >
                     <Compass size={16} aria-hidden="true" />
-                    Focus Rail
+                    <span className="nav-label">Focus Rail</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     to={`/review/${sessionId}`}
+                    aria-label="Review & Handoff"
                     className={`button ${location.pathname.startsWith("/review") ? "button-secondary" : "button-ghost"}`}
                     style={{ minHeight: 38, padding: "var(--space-1) var(--space-3)" }}
                   >
                     <CheckCircle2 size={16} aria-hidden="true" />
-                    Review &amp; Handoff
+                    <span className="nav-label">Review &amp; Handoff</span>
                   </Link>
                 </li>
               </>
@@ -152,11 +157,12 @@ export const Header: React.FC = () => {
             <li>
               <Link
                 to="/evidence"
+                aria-label="Evidence"
                 className={`button button-ghost ${location.pathname === "/evidence" ? "button-secondary" : ""}`}
                 style={{ minHeight: 38, padding: "var(--space-1) var(--space-3)" }}
               >
                 <BookOpen size={16} aria-hidden="true" />
-                Evidence
+                <span className="nav-label">Evidence</span>
               </Link>
             </li>
 
@@ -165,10 +171,10 @@ export const Header: React.FC = () => {
                 to="/settings"
                 className={`button button-ghost ${location.pathname === "/settings" ? "button-secondary" : ""}`}
                 style={{ minHeight: 38, padding: "var(--space-1) var(--space-3)" }}
-                aria-label="Accessibility & Display Settings"
+                aria-label="Settings — Accessibility & Display"
               >
                 <Settings size={16} aria-hidden="true" />
-                Settings
+                <span className="nav-label">Settings</span>
               </Link>
             </li>
 

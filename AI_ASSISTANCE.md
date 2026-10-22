@@ -27,7 +27,7 @@ Importantly:
   - Scaffolding the React 19 + TypeScript + Vite project structure.
   - Implementing the pure deterministic compiler pipeline (`src/domain/compiler/`).
   - Constructing the dependency graph algorithms, cycle detection, and revision diff engine (`src/domain/revision/`).
-  - Building accessible UI components adhering to WCAG 2.2 AA standards (`src/ui/components/`).
+  - Building accessible UI components and automated checks aligned with relevant WCAG success criteria (`src/ui/components/`, `tests/e2e/`).
   - Configuring Dexie/IndexedDB local persistence adapters and migrations.
   - Designing local SVG architecture and state lifecycle diagrams.
 

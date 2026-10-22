@@ -48,16 +48,13 @@ export function findDependencySafeDetour(
     // 1. Cannot be the blocked step itself
     if (step.id === blockedStepId) continue;
 
-    // 2. Cannot already be finished
-    if (step.state === "DONE" || step.state === "SKIPPED") continue;
+    // 2. Must be strictly READY (rejects STALE, BLOCKED, ACTIVE, PROPOSED, DONE, SKIPPED)
+    if (step.state !== "READY") continue;
 
-    // 3. Cannot be STALE or BLOCKED
-    if (step.state === "STALE" || step.state === "BLOCKED") continue;
-
-    // 4. Cannot depend on the blocked step (directly or transitively)
+    // 3. Cannot depend on the blocked step (directly or transitively)
     if (downstreamOfBlocked.has(step.id)) continue;
 
-    // 5. All prerequisites must be DONE
+    // 4. All prerequisites must be completed (DONE)
     const allPrereqsDone = step.dependsOn.every((depId) => {
       const dep = stepMap.get(depId);
       return dep?.state === "DONE";
@@ -65,7 +62,7 @@ export function findDependencySafeDetour(
 
     if (!allPrereqsDone) continue;
 
-    // 6. Cannot have UNCERTAIN evidence class
+    // 5. Cannot have UNCERTAIN evidence class
     if (step.evidenceClass === "UNCERTAIN") continue;
 
     eligibleCandidates.push(step);

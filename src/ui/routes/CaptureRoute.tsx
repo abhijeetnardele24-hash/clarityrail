@@ -41,10 +41,11 @@ export const CaptureRoute: React.FC = () => {
   };
 
   return (
-    <main id="main-content" className="container" style={{ padding: "var(--space-8) var(--space-4)" }}>
+    <main id="main-content" className="container capture-page">
       {/* Hero Header */}
-      <section style={{ maxWidth: 840, margin: "0 auto var(--space-8) auto", textAlign: "center" }}>
+      <section className="capture-hero">
         <div
+          className="entry-pill"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -63,8 +64,8 @@ export const CaptureRoute: React.FC = () => {
           Taskforge 2026 Challenge Entry
         </div>
 
-        <h1 style={{ marginBottom: "var(--space-4)", fontWeight: 800 }}>
-          From messy instructions to one clear, traceable next step.
+        <h1 className="capture-title">
+          From messy instructions to <span>one clear next step.</span>
         </h1>
 
         <p
@@ -81,7 +82,7 @@ export const CaptureRoute: React.FC = () => {
         </p>
 
         {/* Framing Banner (One User, One Barrier, Meaningful Change) */}
-        <div
+        <div className="narrative-strip"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -124,10 +125,14 @@ export const CaptureRoute: React.FC = () => {
       </section>
 
       {/* Main Input Form */}
-      <section className="card" style={{ maxWidth: 840, margin: "0 auto var(--space-8) auto" }}>
-        <h2 style={{ fontSize: "1.25rem", marginBottom: "var(--space-3)" }}>
-          Paste Your Brief or Assignment
-        </h2>
+      <section className="card capture-workbench">
+        <div className="workbench-heading">
+          <div>
+            <span className="eyebrow">01 / Capture the source</span>
+            <h2>Paste Your Brief or Assignment</h2>
+          </div>
+          <span className="proof-chip">Deterministic · Source-linked</span>
+        </div>
 
         {error && (
           <div
@@ -180,7 +185,7 @@ export const CaptureRoute: React.FC = () => {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "var(--space-3)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-1)", color: "var(--color-success)", fontSize: "0.85rem", fontWeight: 600 }}>
               <ShieldCheck size={16} aria-hidden="true" />
-              100% Client-Side Processing · Never leaves this browser
+              Processed in this browser · No account required
             </div>
 
             <button
@@ -189,7 +194,7 @@ export const CaptureRoute: React.FC = () => {
               disabled={isLoading || !briefText.trim()}
               data-testid="compile-button"
             >
-              {isLoading ? "Compiling Execution Rail..." : "Compile to Next Action"}
+              {isLoading ? "Building Focus Rail..." : "Build My Focus Rail"}
               <ArrowRight size={18} aria-hidden="true" />
             </button>
           </div>
@@ -197,11 +202,11 @@ export const CaptureRoute: React.FC = () => {
       </section>
 
       {/* 60-Second Judge Quick-Start & Synthetic Fixtures */}
-      <section style={{ maxWidth: 840, margin: "0 auto" }}>
+      <section className="fixture-section">
         <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-3)" }}>
           <Sparkles size={20} color="var(--color-action)" aria-hidden="true" />
           <h2 style={{ fontSize: "1.2rem", fontWeight: 700 }}>
-            Judge Quick-Start (1-Click Synthetic Demonstrations)
+            Try the Evidence Contract
           </h2>
         </div>
 
@@ -228,7 +233,7 @@ export const CaptureRoute: React.FC = () => {
             return (
               <div
                 key={fixture.id}
-                className="card"
+                className="card fixture-card"
                 style={{
                   display: "flex",
                   flexDirection: "column",

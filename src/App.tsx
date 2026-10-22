@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import { useAppStore } from "./application/store";
 import { Header } from "./ui/components/Header";
 import { LiveAnnouncer } from "./ui/components/LiveAnnouncer";
-import { CaptureRoute } from "./ui/routes/CaptureRoute";
-import { RailRoute } from "./ui/routes/RailRoute";
-import { ReviewRoute } from "./ui/routes/ReviewRoute";
-import { EvidenceRoute } from "./ui/routes/EvidenceRoute";
-import { SettingsRoute } from "./ui/routes/SettingsRoute";
+const CaptureRoute = lazy(() => import("./ui/routes/CaptureRoute").then((module) => ({ default: module.CaptureRoute })));
+const RailRoute = lazy(() => import("./ui/routes/RailRoute").then((module) => ({ default: module.RailRoute })));
+const ReviewRoute = lazy(() => import("./ui/routes/ReviewRoute").then((module) => ({ default: module.ReviewRoute })));
+const EvidenceRoute = lazy(() => import("./ui/routes/EvidenceRoute").then((module) => ({ default: module.EvidenceRoute })));
+const SettingsRoute = lazy(() => import("./ui/routes/SettingsRoute").then((module) => ({ default: module.SettingsRoute })));
 
 export const AppContent: React.FC = () => {
   const preferences = useAppStore((state) => state.preferences);
@@ -39,16 +39,18 @@ export const AppContent: React.FC = () => {
       <Header />
 
       {/* Route Views */}
-      <div style={{ flex: 1 }}>
-        <Routes>
-          <Route path="/" element={<CaptureRoute />} />
-          <Route path="/rail/:sessionId" element={<RailRoute />} />
-          <Route path="/compile/:sessionId" element={<RailRoute />} />
-          <Route path="/review/:sessionId" element={<ReviewRoute />} />
-          <Route path="/evidence" element={<EvidenceRoute />} />
-          <Route path="/settings" element={<SettingsRoute />} />
-          <Route path="*" element={<CaptureRoute />} />
-        </Routes>
+      <div className="app-main">
+        <Suspense fallback={<main id="main-content" className="route-loading" role="status">Loading workspace…</main>}>
+          <Routes>
+            <Route path="/" element={<CaptureRoute />} />
+            <Route path="/rail/:sessionId" element={<RailRoute />} />
+            <Route path="/compile/:sessionId" element={<RailRoute />} />
+            <Route path="/review/:sessionId" element={<ReviewRoute />} />
+            <Route path="/evidence" element={<EvidenceRoute />} />
+            <Route path="/settings" element={<SettingsRoute />} />
+            <Route path="*" element={<CaptureRoute />} />
+          </Routes>
+        </Suspense>
       </div>
 
       {/* Footer */}
@@ -72,7 +74,7 @@ export const AppContent: React.FC = () => {
             Built for the <strong>Taskforge Hackathon 2026</strong> (<a href="https://taskforge.devpost.com/" target="_blank" rel="noreferrer" style={{ color: "var(--color-action)" }}>taskforge.devpost.com</a>).
           </p>
           <p style={{ fontSize: "0.8rem" }}>
-            100% Local-first Cognitive Accessibility &middot; Open Source under MIT License &middot; Zero Cloud Telemetry
+            Local-first cognitive-accessibility prototype &middot; Open source under MIT &middot; No analytics or telemetry code
           </p>
         </div>
       </footer>

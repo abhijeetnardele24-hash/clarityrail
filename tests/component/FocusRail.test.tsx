@@ -77,7 +77,7 @@ describe("FocusRail Component", () => {
       />
     );
 
-    const breakBtn = screen.getByRole("button", { name: /Break down step into smaller actions/i });
+    const breakBtn = screen.getByRole("button", { name: /Break this down/i });
     fireEvent.click(breakBtn);
 
     expect(screen.getByRole("heading", { name: /Break Down into Micro-Steps/i })).toBeInTheDocument();

@@ -1,143 +1,68 @@
-# ClarityRail — Official 3:30 Hackathon Demonstration Script & Storyboard
+# ClarityRail — 2:30 product demo plan
 
-**Target Duration**: 3:20 – 3:40 (210 seconds total)  
-**Hackathon**: Taskforge 2026 Challenge  
-**Application**: [ClarityRail](https://github.com/abhijeetnardele24-hash/clarityrail)  
-**Key Value Proposition**: From messy instructions to one clear, traceable next step. A local-first cognitive-accessibility workspace for students experiencing task paralysis.
+## Goal and format
 
----
+- Purpose: win over Taskforge judges with a truthful, reproducible product demonstration.
+- Audience: judges who understand productivity tools but have not seen ClarityRail.
+- One thing to remember: **ClarityRail does not give an overloaded student another list; it gives one source-proven action and protects it when instructions change.**
+- Format: 16:9, 1920×1080, 30 fps, target 2:25, hard maximum 2:30.
+- Deliverables: H.264 MP4, `.srt` captions, thumbnail, and source storyboard.
 
-## Storyboard Overview & Timing Map
+Use only real application footage, repository diagrams, and machine-generated metrics. Do not invent user research, execution speed, awards, testimonials, or unsupported accessibility claims.
 
-| Scene | Timestamp | Duration | Scene Title & Core Concept | Primary Visual Action |
-|---|---|---|---|---|
-| **1** | 0:00 – 0:35 | 35s | The Task Paralysis Gap & Ambiguous Briefs | Raw multi-page assignment brief; cognitive friction |
-| **2** | 0:35 – 1:15 | 40s | 1-Click Compilation & Deterministic Pipeline | Judge Quick-Start button; instant graph generation |
-| **3** | 1:15 – 2:00 | 45s | The Focus Rail & Direct Source Evidence Thread | Single active step; "Why this step?" source drawer |
-| **4** | 2:00 – 2:35 | 35s | The Ambiguity Gate & In-Situ Decisions | Missing timezone/format resolution inline |
-| **5** | 2:35 – 3:05 | 30s | Change Impact Guard & Dependency-Safe Detour | Brief revision triggering STALE; detour banner |
-| **6** | 3:05 – 3:25 | 20s | Interruption Recovery Capsule & Handoff Export | Export modal, Markdown copy, sensory settings |
-| **7** | 3:25 – 3:35 | 10s | Verification Architecture & Production Standards | Test suite, offline privacy boundary, closing call |
+## Storyboard
 
----
+| Time | Scene | Real visual | Narration goal |
+|---|---|---|---|
+| 0:00–0:14 | Hook | Dense CS 401 fixture, then immediate cut to one focused action | Name the task-initiation barrier |
+| 0:14–0:32 | Compile | Landing workspace; click the fixture | Show local deterministic compilation |
+| 0:32–0:55 | Evidence | Focus Rail; open “Why this step?” | Prove the action came from source text |
+| 0:55–1:16 | Ambiguity | Resolve the missing deadline detail | Show uncertainty is exposed, not guessed |
+| 1:16–1:48 | Guard and detour | Complete, block, detour, revise brief, see `STALE` | Demonstrate the differentiating safety model |
+| 1:48–2:05 | Recovery | Review route and export dialog | Show interruption recovery and handoff |
+| 2:05–2:20 | Evidence | Architecture graphic followed by verified test summary | Establish engineering credibility without overclaiming |
+| 2:20–2:30 | Close | Product lockup and live URL | Repeat the memorable promise |
 
-## Scene-by-Scene Audio & Visual Script
+## Voiceover script
 
-### Scene 1: The Problem & Task Paralysis Gap (0:00 – 0:35 | 35s)
+**0:00–0:14**
 
-**Visuals**:
-- Camera displays a dense, unformatted 800-word university lab handout containing buried requirements, vague deadlines (“submit by Friday”), and conflicting collaboration roles.
-- Cursor hovers hesitantly over the page, illustrating executive dysfunction and task inertia.
+“When a brief contains six actions, hidden prerequisites, and an unclear deadline, the first task becomes deciding what the task is. For a student under cognitive load, that can stop work before it starts.”
 
-**Voiceover**:
-> *"Every student knows this sinking feeling: you open an assignment, and you are hit with three pages of dense instructions, buried deadlines, and unowned group roles. For neurodivergent learners and anyone under high cognitive load, this friction triggers immediate task paralysis—not because the work is hard, but because deciding what to do first is overwhelming.*
->
-> *Existing AI tools summarize text into even more words. They hallucinate non-existent steps, change their output on every prompt, and send private student work to cloud servers.*
->
-> *This is why we built **ClarityRail**."*
+**0:14–0:32**
 
----
+“ClarityRail turns the brief into one clear, traceable next action. This CS 401 example runs entirely in the browser through a deterministic TypeScript compiler—no brief is sent to an application server, and no neural model invents missing instructions.”
 
-### Scene 2: 1-Click Compilation & Pure Deterministic Pipeline (0:35 – 1:15 | 40s)
+**0:32–0:55**
 
-**Visuals**:
-- Browser navigates to ClarityRail landing page (`#/`).
-- Highlight the 60-Second Judge Quick-Start section. Click the **"Load & Compile: CS 401 — Distributed Systems"** fixture.
-- The interface instantaneously compiles the brief into an interactive rail in under 15 milliseconds without external API round-trips.
+“The Focus Rail keeps later work outside the primary visual field. ‘Why this step?’ opens the Evidence Thread: the exact source clause, character range, and prerequisite relationship. The user can check every recommendation against the original words.”
 
-**Voiceover**:
-> *"ClarityRail is a local-first cognitive-accessibility workspace that turns messy briefs into one clear, verifiable next action.
->
-> To let judges test every subsystem immediately, we provide 1-click pre-annotated synthetic fixtures right on the landing page. Let's load the CS 401 Distributed Systems assignment.
->
-> In just 12 milliseconds, our pure TypeScript compiler parses the brief. It performs sentence segmentation, extracts action candidates, models dependency prerequisites, detects ambiguities, and anchors every single step directly to its source clause with exact character offsets. Zero AI hallucinations, zero cloud calls, and 100% deterministic repeatability."*
+**0:55–1:16**
 
----
+“The system also refuses to disguise uncertainty. The Ambiguity Gate catches a deadline without a cutoff time. The student records the decision explicitly, and that answer stays attached to this local session.”
 
-### Scene 3: The Focus Rail & Direct Evidence Thread (1:15 – 2:00 | 45s)
+**1:16–1:48**
 
-**Visuals**:
-- The screen transitions to the **Focus Rail** (`#/rail/:sessionId`).
-- Full viewport concentrates on Step 1: *"Download the lab starter repository from GitHub"*.
-- The secondary and later steps are subdued to prevent cognitive overload.
-- Click the **"Why this step?"** expandable drawer.
-- The drawer expands, revealing Clause #2 highlighted with exact line and character boundaries: *"Please download the lab starter repository from GitHub."*
+“If progress is blocked, ClarityRail offers only a READY branch whose prerequisites are satisfied. The stronger protection appears when instructions change. Edit the report requirement and the Change Impact Guard marks the changed action—and work that depends on it—STALE. Nothing silently continues on obsolete evidence.”
 
-**Voiceover**:
-> *"Notice the screen: there is no overwhelming list of twenty checkboxes. ClarityRail enforces cognitive isolation—showing only the immediate next actionable step.
->
-> But how does the student know they can trust it?
->
-> We introduce the **Evidence Thread**. Clicking 'Why this step?' reveals the direct source clause from the original brief. Every step carries an immutable evidence badge linking back to the verified text. If a step cannot be proven from the source, our compiler will not generate it."*
+**1:48–2:05**
 
----
+“After an interruption, the recovery capsule restores the last completed step, current focus, open questions, and source revision. A Markdown handoff or JSON backup can be exported without creating an account.”
 
-### Scene 4: The Ambiguity Gate & In-Situ Decisions (2:00 – 2:35 | 35s)
+**2:05–2:20**
 
-**Visuals**:
-- In the Focus Rail, an amber **Ambiguity Gate** card appears: *"The deadline mentions 'Friday', but omits an exact cutoff time and time zone. Which local time zone applies?"*
-- User types `"11:59 PM EST"` into the input box and clicks **"Confirm Decision"**.
-- The card updates with a green checkmark: *"Resolved: 11:59 PM EST"*, updating the step metadata and persisting to local storage.
+“The evidence pipeline verifies 78 unit and component tests, 33 browser executions, responsive layouts, installed-service-worker offline reload, and automated accessibility scans in the tested states. The 40-brief synthetic benchmark is published with its limits.”
 
-**Voiceover**:
-> *"Real-world briefs are full of vague traps: 'submit by Friday' or 'format appropriately'. 
->
-> ClarityRail catches these with our deterministic **Ambiguity Gate**. Instead of letting students guess or panic at deadline time, the system detects missing formats, absent time zones, and unassigned owners.
->
-> Here, it asks for the missing time zone. The student enters '11:59 PM EST', confirms it, and the decision is permanently recorded in the session record."*
+**2:20–2:30**
 
----
+“ClarityRail: not another overwhelming plan—one source-proven action, protected from ambiguity and change. Try the live demo.”
 
-### Scene 5: Change Impact Guard & Dependency-Safe Detour (2:35 – 3:05 | 30s)
+## Editing and accessibility rules
 
-**Visuals**:
-- Click **"Edit Source Brief"**.
-- Modify Clause 1 in the textarea: changing GitHub starter to v2 starter. Click **"Apply Revision"**.
-- Instantly, the active step turns into a red/amber **STALE** alert: *"Action invalidated due to source brief revision"*.
-- Click **"Mark as Blocked"** on a dependency-locked step.
-- The **Safe Detour Banner** appears at the top: recommending an alternative, unblocked research action that doesn't depend on the blocked step.
-
-**Voiceover**:
-> *"What happens when instructions change mid-project?
->
-> If a professor emails an update, our **Change Impact Guard** computes a clause diff. If a source clause changes, all downstream steps are automatically flagged as STALE. The student is prevented from wasting hours on obsolete requirements.
->
-> And if a student hits a roadblock—like waiting on hardware access—they can mark the step BLOCKED. Our **Dependency-Safe Detour** algorithm instantly identifies an eligible alternative step that doesn't depend on the blocker, keeping momentum alive without breaking project prerequisites."*
-
----
-
-### Scene 6: Interruption Recovery Capsule & Handoff Export (3:05 – 3:25 | 20s)
-
-**Visuals**:
-- Click **"Review & Handoff"** in the navigation header.
-- View the **Interruption Recovery Capsule** showing completed steps, current focus, and remaining actions.
-- Click **"Export Handoff Capsule"**.
-- Show the modal with copyable Markdown standup summary and downloadable JSON session file.
-- Click the **Contrast Toggle** in the header to show the High Contrast theme.
-
-**Voiceover**:
-> *"When work is interrupted, the **Interruption Recovery Capsule** brings the student back up to speed in seconds.
->
-> Need to update a project partner or instructor? With one click, generate a clean Markdown handoff capsule ready for Slack or email.
->
-> The interface also includes high-contrast palettes, reduced motion controls, and WCAG 2.1 AA accessibility out of the box."*
-
----
-
-### Scene 7: Verification Architecture & Production Standards (3:25 – 3:35 | 10s)
-
-**Visuals**:
-- Fast camera pan to terminal showing 60 passing Vitest unit tests (91.9% statements / 81.2% branches), 28 Playwright cross-device checks, and green GitHub Actions badge.
-- Closing splash card: *ClarityRail — From messy instructions to one clear, traceable next step.*
-
-**Voiceover**:
-> *"ClarityRail is verified by 60 unit tests with over 91% coverage, 28 cross-viewport E2E tests, and zero telemetry. Built for Taskforge 2026. Try the live demo today."*
-
----
-
-## Technical Director & Screen Recording Notes
-
-1. **Audio Pace**: Maintain an articulate, reassuring 130–140 words-per-minute pace.
-2. **Resolution**: Record at 1920x1080 (16:9) at 60fps.
-3. **Cursor Motion**: Smooth, deliberate cursor paths with 300ms hover pauses on primary interactive elements.
-4. **Theme**: Begin in Warm Paper editorial theme; switch to High Contrast at 3:18 to demonstrate sensory accommodation.
+- Voice: warm, neutral Indian English, approximately 135 words per minute, natural pauses.
+- Look: calm editorial warm-paper palette; Manrope display type and Atkinson Hyperlegible body type.
+- Motion: restrained pans, 2–4% zooms, soft fades, and short highlight pulses only.
+- Audio: royalty-free understated ambient bed at approximately −22 dB under speech; duck narration; no synthetic notification clutter.
+- Captions: burned-in high-contrast Atkinson Hyperlegible within title-safe margins plus separate `.srt`.
+- Cut waits longer than one second, smooth cursor movement, and blur unrelated tabs or personal information.
+- Show the script and storyboard for approval before rendering the final video.

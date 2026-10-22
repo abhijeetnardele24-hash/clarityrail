@@ -73,10 +73,22 @@ export function generateMarkdownHandoff(session: RailSession): string {
   }
   lines.push("");
 
-  // 6. Source Traceability Ledger
+  // 6. Source Clause References
   lines.push("## 6. Source Clause References");
   for (const clause of session.sourceClauses) {
     lines.push(`${clause.ordinal}. "${clause.text.trim()}"`);
+  }
+  lines.push("");
+
+  // 7. Revision Provenance & Source Digests
+  lines.push("## 7. Revision Provenance & Source Digests");
+  for (const rev of session.sourceRevisions) {
+    const parentNote = rev.parentRevisionId ? ` (derived from \`${rev.parentRevisionId}\`)` : " (initial compilation)";
+    lines.push(`- **Revision \`${rev.id}\`**${parentNote}`);
+    lines.push(`  - SHA-256 Digest: \`${rev.normalizedDigest}\``);
+    lines.push(`  - Timestamp: ${rev.createdAt}`);
+    if (rev.changeSummary) lines.push(`  - Summary: ${rev.changeSummary}`);
+    if (rev.changedClauseIds.length > 0) lines.push(`  - Changed Clauses: ${rev.changedClauseIds.join(", ")}`);
   }
   lines.push("");
 

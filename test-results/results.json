@@ -10,7 +10,7 @@
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
-    "globalSetup": null,
+    "globalSetup": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e\\global-setup.ts",
     "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
@@ -33,7 +33,7 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
         ],
         "timeout": 30000
       },
@@ -49,7 +49,7 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
         ],
         "timeout": 30000
       },
@@ -65,7 +65,7 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
         ],
         "timeout": 30000
       },
@@ -81,7 +81,7 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
         ],
         "timeout": 30000
       },
@@ -97,7 +97,7 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
         ],
         "timeout": 30000
       },
@@ -113,7 +113,7 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
         ],
         "timeout": 30000
       },
@@ -129,7 +129,23 @@
         "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/clarityrail\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Chromium Deep Verification",
+        "name": "Chromium Deep Verification",
+        "testDir": "C:/Users/Abhijeet Nardele/OneDrive/Desktop/devpost project/clarityrail/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/resilience\\.spec\\.ts/"
         ],
         "timeout": 30000
       }
@@ -148,7 +164,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -177,7 +193,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -206,7 +222,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -235,7 +251,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -263,7 +279,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -291,7 +307,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -319,7 +335,7 @@
         "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
         "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "testMatch": {},
         "timeout": 30000,
         "use": {
           "baseURL": "http://localhost:4173/clarityrail/",
@@ -333,6 +349,34 @@
         "dependencies": [],
         "ignoreSnapshots": false,
         "__projectId": "Desktop Large (1920px)"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Chromium Deep Verification",
+        "testDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\Abhijeet Nardele\\OneDrive\\Desktop\\devpost project\\clarityrail\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:4173/clarityrail/",
+          "trace": "on-first-retry",
+          "video": "off",
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Chromium Deep Verification"
       }
     ],
     "quiet": false,
@@ -401,12 +445,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2136,
+                      "duration": 2130,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:37.800Z",
+                      "startTime": "2026-10-22T07:24:23.112Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -435,12 +479,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1218,
+                      "duration": 1398,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:40.018Z",
+                      "startTime": "2026-10-22T07:24:25.328Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -450,7 +494,7 @@
               ],
               "id": "28a18f11c64ab21cec50-cbe020b720017c1b1090",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -469,12 +513,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 535,
+                      "duration": 1075,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:41.243Z",
+                      "startTime": "2026-10-22T07:24:26.734Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -484,7 +528,7 @@
               ],
               "id": "28a18f11c64ab21cec50-e3631cfa65eeba1ef128",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -503,12 +547,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 472,
+                      "duration": 970,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:41.786Z",
+                      "startTime": "2026-10-22T07:24:27.816Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -518,7 +562,7 @@
               ],
               "id": "28a18f11c64ab21cec50-e00882a925a3be2d03b7",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
               "column": 3
             },
             {
@@ -537,12 +581,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1069,
+                      "duration": 1049,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:43.236Z",
+                      "startTime": "2026-10-22T07:24:29.694Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -571,12 +615,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1260,
+                      "duration": 1398,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:44.397Z",
+                      "startTime": "2026-10-22T07:24:30.825Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -586,7 +630,7 @@
               ],
               "id": "28a18f11c64ab21cec50-2334a3dbce4d48e1f68a",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -605,12 +649,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 529,
+                      "duration": 1060,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:45.665Z",
+                      "startTime": "2026-10-22T07:24:32.231Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -620,7 +664,7 @@
               ],
               "id": "28a18f11c64ab21cec50-6272356475511b769e6f",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -639,12 +683,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 473,
+                      "duration": 949,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:46.201Z",
+                      "startTime": "2026-10-22T07:24:33.298Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -654,7 +698,7 @@
               ],
               "id": "28a18f11c64ab21cec50-61480b39b4d9241da43c",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
               "column": 3
             },
             {
@@ -673,12 +717,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1109,
+                      "duration": 1034,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:47.599Z",
+                      "startTime": "2026-10-22T07:24:35.137Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -707,12 +751,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1348,
+                      "duration": 1410,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:48.795Z",
+                      "startTime": "2026-10-22T07:24:36.262Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -722,7 +766,7 @@
               ],
               "id": "28a18f11c64ab21cec50-4305cf2ce08f37cc6529",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -741,12 +785,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 541,
+                      "duration": 1047,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:50.152Z",
+                      "startTime": "2026-10-22T07:24:37.678Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -756,7 +800,7 @@
               ],
               "id": "28a18f11c64ab21cec50-64c7b01901a66ea27a3b",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -775,12 +819,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 487,
+                      "duration": 954,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:50.701Z",
+                      "startTime": "2026-10-22T07:24:38.732Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -790,7 +834,7 @@
               ],
               "id": "28a18f11c64ab21cec50-0b9efc3592939e3b1918",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
               "column": 3
             },
             {
@@ -809,12 +853,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1075,
+                      "duration": 1047,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:52.090Z",
+                      "startTime": "2026-10-22T07:24:40.576Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -843,12 +887,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1270,
+                      "duration": 1387,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:53.254Z",
+                      "startTime": "2026-10-22T07:24:41.711Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -858,7 +902,7 @@
               ],
               "id": "28a18f11c64ab21cec50-dcec2ccdeb897f714e20",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -877,12 +921,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 524,
+                      "duration": 1087,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:54.536Z",
+                      "startTime": "2026-10-22T07:24:43.105Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -892,7 +936,7 @@
               ],
               "id": "28a18f11c64ab21cec50-11e59a21a3a184a55478",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -911,12 +955,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 488,
+                      "duration": 990,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:55.068Z",
+                      "startTime": "2026-10-22T07:24:44.199Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -926,7 +970,7 @@
               ],
               "id": "28a18f11c64ab21cec50-4d6480efdd858a826407",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
               "column": 3
             },
             {
@@ -945,12 +989,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1030,
+                      "duration": 1065,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:56.465Z",
+                      "startTime": "2026-10-22T07:24:46.088Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -979,12 +1023,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1472,
+                      "duration": 1408,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:57.584Z",
+                      "startTime": "2026-10-22T07:24:47.242Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -994,7 +1038,7 @@
               ],
               "id": "28a18f11c64ab21cec50-5c6b6728ecd9ede0ea7d",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -1013,12 +1057,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 529,
+                      "duration": 1070,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:59.064Z",
+                      "startTime": "2026-10-22T07:24:48.657Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1028,7 +1072,7 @@
               ],
               "id": "28a18f11c64ab21cec50-f288734c27aac391a324",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -1047,12 +1091,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 472,
+                      "duration": 976,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:53:59.601Z",
+                      "startTime": "2026-10-22T07:24:49.734Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1062,7 +1106,7 @@
               ],
               "id": "28a18f11c64ab21cec50-db999b82b86c8ddd104d",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
               "column": 3
             },
             {
@@ -1081,12 +1125,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1119,
+                      "duration": 1053,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:01.003Z",
+                      "startTime": "2026-10-22T07:24:51.623Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1115,12 +1159,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1259,
+                      "duration": 1389,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:02.209Z",
+                      "startTime": "2026-10-22T07:24:52.760Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1130,7 +1174,7 @@
               ],
               "id": "28a18f11c64ab21cec50-734120b441130607ca3c",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -1149,12 +1193,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 532,
+                      "duration": 1066,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:03.478Z",
+                      "startTime": "2026-10-22T07:24:54.157Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1164,7 +1208,7 @@
               ],
               "id": "28a18f11c64ab21cec50-141c6e8a3bc3df7e0017",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -1183,12 +1227,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 472,
+                      "duration": 966,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:04.017Z",
+                      "startTime": "2026-10-22T07:24:55.232Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1198,7 +1242,7 @@
               ],
               "id": "28a18f11c64ab21cec50-f52885f7524083e9a6a2",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
               "column": 3
             },
             {
@@ -1217,12 +1261,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1089,
+                      "duration": 1029,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:05.415Z",
+                      "startTime": "2026-10-22T07:24:57.094Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1251,12 +1295,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1315,
+                      "duration": 1388,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:06.592Z",
+                      "startTime": "2026-10-22T07:24:58.210Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1266,7 +1310,7 @@
               ],
               "id": "28a18f11c64ab21cec50-f80d5c96f11119d8d0b9",
               "file": "clarityrail.spec.ts",
-              "line": 31,
+              "line": 24,
               "column": 3
             },
             {
@@ -1285,12 +1329,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 637,
+                      "duration": 1068,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:07.918Z",
+                      "startTime": "2026-10-22T07:24:59.605Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1300,7 +1344,7 @@
               ],
               "id": "28a18f11c64ab21cec50-04a24b0fab2f23ed49ba",
               "file": "clarityrail.spec.ts",
-              "line": 104,
+              "line": 100,
               "column": 3
             },
             {
@@ -1319,12 +1363,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 475,
+                      "duration": 986,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-21T17:54:08.564Z",
+                      "startTime": "2026-10-22T07:25:00.680Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1334,7 +1378,194 @@
               ],
               "id": "28a18f11c64ab21cec50-3eaad801a5d915a081da",
               "file": "clarityrail.spec.ts",
-              "line": 124,
+              "line": 121,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "resilience.spec.ts",
+      "file": "resilience.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "ClarityRail resilience and interaction verification",
+          "file": "resilience.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "persists a compiled rail through reload and an offline service-worker reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium Deep Verification",
+                  "projectName": "Chromium Deep Verification",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 863,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T07:25:02.575Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c1cdccb29e536012e9c2-8d8f53e44b2660bcaaca",
+              "file": "resilience.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "preserves stale revision review state across reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium Deep Verification",
+                  "projectName": "Chromium Deep Verification",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 612,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T07:25:03.529Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c1cdccb29e536012e9c2-142a04a9190dde379cf1",
+              "file": "resilience.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "traps dialog focus, closes on Escape and restores the trigger",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium Deep Verification",
+                  "projectName": "Chromium Deep Verification",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 479,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T07:25:04.150Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c1cdccb29e536012e9c2-4d2bc396d05acd599ad3",
+              "file": "resilience.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "has no horizontal overflow, unexpected runtime errors, or serious Axe findings on primary routes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium Deep Verification",
+                  "projectName": "Chromium Deep Verification",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2405,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T07:25:04.635Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c1cdccb29e536012e9c2-fd3f12d0f2027fd43961",
+              "file": "resilience.spec.ts",
+              "line": 49,
+              "column": 3
+            },
+            {
+              "title": "honors reduced-motion preference",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium Deep Verification",
+                  "projectName": "Chromium Deep Verification",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 273,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T07:25:07.047Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c1cdccb29e536012e9c2-ea9f820734caf48f6bd0",
+              "file": "resilience.spec.ts",
+              "line": 70,
               "column": 3
             }
           ]
@@ -1344,9 +1575,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-21T17:53:29.313Z",
-    "duration": 40406.523,
-    "expected": 28,
+    "startTime": "2026-10-22T07:24:22.601Z",
+    "duration": 45205.201,
+    "expected": 33,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

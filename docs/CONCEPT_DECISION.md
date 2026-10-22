@@ -59,7 +59,7 @@ Generic task breakdown, focus timers, and basic resume summaries are established
 ```
 
 1. **Evidence Thread**:
-   - Every generated plan step maintains an immutable reference to the exact ordinal source clauses from which it was derived.
+   - Every generated plan step stores a reference to the exact ordinal source clause and character range from which it was derived.
    - The user can inspect the "Why this step?" disclosure at any moment to see the verbatim source evidence.
    - The system never manufactures deliverables or deadlines not present in the source.
 

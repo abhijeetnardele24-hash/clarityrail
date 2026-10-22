@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PlanStep, RailSession, SourceClause } from "../../domain/types";
 import { CheckCircle2, ShieldAlert, Split, ChevronDown, ChevronUp, FileText, Clock } from "lucide-react";
 
@@ -22,6 +22,36 @@ export const FocusRail: React.FC<FocusRailProps> = ({
   const [showEvidence, setShowEvidence] = useState(false);
   const [showBreakdownModal, setShowBreakdownModal] = useState(false);
   const [subtasksText, setSubtasksText] = useState("");
+  const breakdownDialogRef = useRef<HTMLDivElement>(null);
+  const breakdownTriggerRef = useRef<HTMLButtonElement>(null);
+  const breakdownTextareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (!showBreakdownModal) return;
+    breakdownTextareaRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setShowBreakdownModal(false);
+      if (event.key !== "Tab" || !breakdownDialogRef.current) return;
+      const focusable = Array.from(breakdownDialogRef.current.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), textarea, [tabindex]:not([tabindex="-1"])'
+      ));
+      if (focusable.length === 0) return;
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      breakdownTriggerRef.current?.focus();
+    };
+  }, [showBreakdownModal]);
 
   const totalSteps = session.steps.length;
   const currentIndex = session.steps.findIndex((s) => s.id === activeStep.id);
@@ -190,6 +220,7 @@ export const FocusRail: React.FC<FocusRailProps> = ({
       {/* Expandable "Why this step?" Source Evidence Disclosure */}
       <div style={{ margin: "var(--space-5) 0" }}>
         <button
+          ref={breakdownTriggerRef}
           type="button"
           onClick={() => setShowEvidence(!showEvidence)}
           className="button button-ghost"
@@ -255,7 +286,6 @@ export const FocusRail: React.FC<FocusRailProps> = ({
           className="button button-primary"
           style={{ padding: "var(--space-3) var(--space-6)", fontSize: "1.05rem" }}
           onClick={() => onMarkDone(activeStep.id)}
-          aria-label={`Mark step done: ${activeStep.title}`}
           data-testid="mark-done-button"
         >
           <CheckCircle2 size={20} aria-hidden="true" />
@@ -267,7 +297,6 @@ export const FocusRail: React.FC<FocusRailProps> = ({
           className="button button-warning"
           style={{ padding: "var(--space-3) var(--space-5)" }}
           onClick={() => onMarkBlocked(activeStep.id)}
-          aria-label={`Mark step blocked: ${activeStep.title}`}
           data-testid="mark-blocked-button"
         >
           <ShieldAlert size={18} aria-hidden="true" />
@@ -279,7 +308,6 @@ export const FocusRail: React.FC<FocusRailProps> = ({
           className="button button-secondary"
           style={{ padding: "var(--space-3) var(--space-5)" }}
           onClick={() => setShowBreakdownModal(true)}
-          aria-label={`Break down step into smaller actions: ${activeStep.title}`}
         >
           <Split size={18} aria-hidden="true" />
           Break this down
@@ -289,6 +317,7 @@ export const FocusRail: React.FC<FocusRailProps> = ({
       {/* Subtask Breakdown Modal */}
       {showBreakdownModal && (
         <div
+          ref={breakdownDialogRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="breakdown-title"
@@ -323,6 +352,7 @@ export const FocusRail: React.FC<FocusRailProps> = ({
             </p>
 
             <textarea
+              ref={breakdownTextareaRef}
               rows={4}
               placeholder={`1. Open repository link in browser\n2. Download starter ZIP\n3. Unzip into project folder`}
               value={subtasksText}

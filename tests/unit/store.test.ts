@@ -58,33 +58,62 @@ describe("Application Zustand Store", () => {
     expect(detour).toBeDefined();
   });
 
-  it("resolves ambiguities and unblocks steps", async () => {
-    const session = await useAppStore.getState().createSession("Submit your final assignment.");
-    const amb = session.ambiguities[0];
+  it("resolves ambiguities without prematurely unblocking dependency-blocked steps", async () => {
+    const fixture = SYNTHETIC_FIXTURES[0]!;
+    const session = await useAppStore.getState().loadFixture(fixture.id);
+
+    // Identify a step that depends on earlier steps
+    const dependentStep = session.steps.find((s) => s.dependsOn.length > 0)!;
+    expect(dependentStep).toBeDefined();
+
+    // Check ambiguities associated with dependent step
+    const amb = session.ambiguities.find((a) =>
+      dependentStep.sourceClauseIds.some((cid) => a.sourceClauseIds.includes(cid))
+    );
+
     if (amb) {
-      await useAppStore.getState().resolveAmbiguity(amb.id, "ANSWERED", "PDF");
+      await useAppStore.getState().resolveAmbiguity(amb.id, "ANSWERED", "Resolved answer");
       const updated = useAppStore.getState().currentSession!;
-      expect(updated.ambiguities.find((a) => a.id === amb.id)?.status).toBe("ANSWERED");
+
+      const targetStep = updated.steps.find((s) => s.id === dependentStep.id)!;
+      // Because prerequisites are not DONE yet, targetStep MUST NOT become READY!
+      expect(targetStep.state).not.toBe("READY");
     }
   });
 
-  it("propagates STALE state when source text is revised", async () => {
+  it("propagates STALE state, retains old validation revision, and updates revision on review", async () => {
     const fixture = SYNTHETIC_FIXTURES[0]!;
-    await useAppStore.getState().createSession(fixture.initialBriefText);
+    const initialSession = await useAppStore.getState().createSession(fixture.initialBriefText);
+    const rev1Id = initialSession.activeRevisionId;
 
     await useAppStore.getState().reviseSourceText(fixture.revisedBriefText!);
 
     const updated = useAppStore.getState().currentSession!;
     expect(updated.sourceRevisions.length).toBe(2);
-    const staleCount = updated.steps.filter((s) => s.state === "STALE").length;
-    expect(staleCount).toBeGreaterThan(0);
+    const rev2Id = updated.activeRevisionId;
+    expect(rev2Id).not.toBe(rev1Id);
+
+    // Genuinely changed clause IDs must be populated
+    const rev2 = updated.sourceRevisions[1]!;
+    expect(rev2.changedClauseIds.length).toBeGreaterThan(0);
+
+    const staleSteps = updated.steps.filter((s) => s.state === "STALE");
+    expect(staleSteps.length).toBeGreaterThan(0);
+
+    // CRITICAL: Stale steps MUST still point to rev1Id until reviewed!
+    for (const stale of staleSteps) {
+      expect(stale.validatedAgainstRevisionId).toBe(rev1Id);
+    }
 
     // Confirm stale review
-    const firstStale = updated.steps.find((s) => s.state === "STALE")!;
+    const firstStale = staleSteps[0]!;
     await useAppStore.getState().reviewAndConfirmStaleStep(firstStale.id);
 
     const postConfirm = useAppStore.getState().currentSession!;
-    expect(postConfirm.steps.find((s) => s.id === firstStale.id)?.state).toBe("READY");
+    const confirmedStep = postConfirm.steps.find((s) => s.id === firstStale.id)!;
+    expect(confirmedStep.state).toBe("READY");
+    // Now it points to rev2Id!
+    expect(confirmedStep.validatedAgainstRevisionId).toBe(rev2Id);
   });
 
   it("breaks down a step into subtasks", async () => {

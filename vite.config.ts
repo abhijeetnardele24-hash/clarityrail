@@ -68,6 +68,15 @@ export default defineConfig({
   },
   build: {
     target: "es2022",
-    sourcemap: true,
+    sourcemap: process.env.SOURCE_MAPS === "true",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom", "react-router-dom"],
+          persistence: ["dexie", "zustand", "zod"],
+          icons: ["lucide-react"],
+        },
+      },
+    },
   },
 });

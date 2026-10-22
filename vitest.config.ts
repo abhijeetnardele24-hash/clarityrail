@@ -11,7 +11,7 @@ export default defineConfig({
     include: ["tests/unit/**/*.test.{ts,tsx}", "tests/component/**/*.test.{ts,tsx}", "tests/benchmark/**/*.test.{ts,tsx}"],
     reporters: ["default", "json"],
     outputFile: {
-      json: "./test-results/vitest-results.json",
+      json: "./reports/vitest-results.json",
     },
     coverage: {
       provider: "v8",

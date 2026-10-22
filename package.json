@@ -18,9 +18,11 @@
     "evidence:check": "tsx scripts/check-evidence.ts",
     "evidence:report": "tsx scripts/generate-evidence-report.ts",
     "generate:assets": "tsx scripts/render-assets.ts",
+    "capture:screenshots": "tsx scripts/capture-screenshots.ts",
     "security-scan": "tsx scripts/security-scan.ts",
     "audit": "npm audit --omit=dev --audit-level=high",
-    "verify": "npm run typecheck && npm run lint && npm test && npm run benchmark && npm run security-scan && npm run audit && npm run evidence:check && npm run build && npm run test:e2e && npm run evidence:report"
+    "verify:start": "tsx scripts/start-verification-run.ts",
+    "verify": "npm run verify:start && npm run typecheck && npm run lint && npm test && npm run benchmark && npm run security-scan && npm run audit && npm run build && npm run test:e2e && npm run evidence:report && npm run evidence:check"
   },
   "dependencies": {
     "dexie": "^4.0.11",
@@ -45,6 +47,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^3.0.5",
     "eslint": "^9.20.1",
+    "fake-indexeddb": "^6.2.6",
     "jsdom": "^26.0.0",
     "tsx": "^4.19.3",
     "typescript": "~5.7.3",

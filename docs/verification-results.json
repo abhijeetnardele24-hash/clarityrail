@@ -1,32 +1,62 @@
 {
-  "generatedAt": "2026-10-21T17:55:50.063Z",
+  "generatedAt": "2026-10-22T07:25:08.308Z",
   "status": "VERIFIED",
+  "source": {
+    "commitSha": "14bf0787cfe055e6c86a8224b8e358b92c9f8da7",
+    "workingTreeClean": false
+  },
   "unitTesting": {
-    "totalTests": 60,
-    "passed": 60,
+    "totalTests": 78,
+    "passed": 78,
+    "failed": 0,
+    "skipped": 0,
     "coverage": {
-      "statements": 92.01,
-      "lines": 92.01,
-      "functions": 87.17,
-      "branches": 81.57
+      "statements": 92.03,
+      "lines": 92.03,
+      "functions": 87.5,
+      "branches": 81.4
     }
   },
   "e2eTesting": {
-    "totalTests": 28,
-    "passed": 28,
-    "viewportsTested": [
-      "320x568",
-      "360x800",
-      "390x844",
-      "768x1024",
-      "1024x768",
-      "1440x900",
-      "1920x1080"
+    "logicalScenarios": 9,
+    "totalExecutions": 33,
+    "passed": 33,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "durationMs": 45205.201,
+    "browserEngine": "Chromium",
+    "viewportProfiles": [
+      "Chromium Deep Verification",
+      "Desktop HD (1440px)",
+      "Desktop Large (1920px)",
+      "Laptop (1024px)",
+      "Mobile Modern (390px)",
+      "Mobile Small (320px)",
+      "Mobile Standard (360px)",
+      "Tablet Portrait (768px)"
+    ]
+  },
+  "accessibility": {
+    "scanner": "@axe-core/playwright",
+    "scannedStates": [
+      "active-rail-after-revision",
+      "evidence-route",
+      "landing",
+      "landing-deep-verification",
+      "review-export-dialog",
+      "settings-route",
+      "settings-warm-paper"
     ],
-    "axeZeroViolations": true
+    "totalScans": 31,
+    "criticalOrSeriousViolations": 0,
+    "scope": "Automated Axe scans of the explicitly listed states; not a full WCAG conformance certification."
+  },
+  "build": {
+    "indexPresent": true
   },
   "benchmark": {
-    "benchmarkDate": "2026-10-21T17:44:51.655Z",
+    "benchmarkDate": "2026-10-22T07:23:59.228Z",
     "corpusSize": 40,
     "metrics": {
       "actionPrecision": 1,

@@ -173,7 +173,6 @@ export const ChangeImpactGuard: React.FC<ChangeImpactGuardProps> = ({
                   className="button button-success"
                   onClick={() => onConfirmStale(step.id)}
                   style={{ minHeight: 38, padding: "var(--space-1) var(--space-4)", fontSize: "0.85rem" }}
-                  aria-label={`Confirm review and restore ${step.title} to READY`}
                   data-testid={`confirm-stale-${step.id}`}
                 >
                   <CheckCircle size={15} aria-hidden="true" />

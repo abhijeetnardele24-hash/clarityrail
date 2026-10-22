@@ -11,6 +11,7 @@ dist-ssr/
 # Test output
 playwright-report/
 coverage/*
+reports/
 test-results/.last-run.json
 test-results/clarityrail-*/
 test-results/**/*.png

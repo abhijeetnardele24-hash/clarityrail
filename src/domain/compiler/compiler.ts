@@ -10,6 +10,7 @@ import { segmentSourceText } from "./segmenter";
 import { extractActionCandidates } from "./extractor";
 import { buildDependencyGraph } from "./dependency";
 import { detectAmbiguities } from "./ambiguityRules";
+import { computeNormalizedSourceDigest } from "./digest";
 
 export interface CompileOptions {
   sessionId?: string;
@@ -117,12 +118,12 @@ export function compileBrief(rawText: string, options: CompileOptions = {}): Rai
   // Active step is the first READY step
   const activeStep = steps.find((s) => s.state === "READY") || steps[0];
 
-  // 7. Create SourceRevision record
+  // 7. Create SourceRevision record with deterministic SHA-256 digest
   const initialRevision: SourceRevision = {
     id: revisionId,
     parentRevisionId: options.parentRevisionId,
     sourceText: normalizedText,
-    normalizedDigest: computeSimpleDigest(normalizedText),
+    normalizedDigest: computeNormalizedSourceDigest(normalizedText),
     createdAt: now,
     changedClauseIds: sourceClauses.map((c) => c.id),
     changeSummary: options.parentRevisionId ? "Revised brief input" : "Initial compilation",
@@ -151,26 +152,23 @@ export function compileBrief(rawText: string, options: CompileOptions = {}): Rai
   };
 }
 
-function createCueActionPhrase(verb: string, title: string): string {
-  const v = verb.toLowerCase();
-  if (v === "download" || v === "read") {
-    return `When I open the assignment portal or files, I will ${title.toLowerCase()}.`;
-  }
-  if (v === "write" || v === "draft") {
-    return `When my outline and notes are open, I will begin to ${title.toLowerCase()}.`;
-  }
-  if (v === "submit" || v === "upload") {
-    return `When my final file is exported and checked, I will ${title.toLowerCase()}.`;
-  }
-  return `When I begin my work session, I will ${title.toLowerCase()}.`;
+function cleanActionTitle(title: string): string {
+  let cleaned = title.trim();
+  cleaned = cleaned.replace(/^(?:please|kindly|be sure to|make sure to|remember to|you must|ensure to)\s+/i, "");
+  return cleaned.charAt(0).toLowerCase() + cleaned.slice(1);
 }
 
-function computeSimpleDigest(text: string): string {
-  let hash = 0;
-  for (let i = 0; i < text.length; i++) {
-    const char = text.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash |= 0; // Convert to 32bit integer
+function createCueActionPhrase(verb: string, title: string): string {
+  const v = verb.toLowerCase();
+  const action = cleanActionTitle(title);
+  if (v === "download" || v === "read") {
+    return `When I open the assignment portal or files, I will ${action}.`;
   }
-  return `digest_${Math.abs(hash).toString(16)}`;
+  if (v === "write" || v === "draft") {
+    return `When my outline and notes are open, I will begin to ${action}.`;
+  }
+  if (v === "submit" || v === "upload") {
+    return `When my final file is exported and checked, I will ${action}.`;
+  }
+  return `When I begin my work session, I will ${action}.`;
 }
